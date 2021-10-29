@@ -1,0 +1,53 @@
+
+<section class="container">
+    <form [formGroup] = "userForm" (ngSubmit) = "SubmitReactive()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="text" class="form-control" name="fullName" formControlName="fullName" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="text-denger" *ngIf="userForm.get('fullName').hasError('required')
+            && userForm.get('fullName').touched">
+            Name Is required
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="email" formControlName="email" id="email" aria-describedby="emailHelp">
+
+          <div class="text-denger" *ngIf="userForm.get('email').hasError('required')
+          && userForm.get('email').touched">
+          email Is required
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        
+          <div class="text-denger" *ngIf="userForm.get('password').hasError('required')
+          && userForm.get('email').touched">
+          password Is required
+          </div>
+
+          <div class="text-denger" *ngIf="userForm.get('password').hasError('minlenght')
+          && userForm.get('email').touched">
+          minLength for Password 8 char
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">date address</label>
+            <input type="date" class="form-control" name="email" formControlName="email" id="email" aria-describedby="emailHelp">
+  
+            <div class="text-denger" *ngIf="userForm.get('date').hasError('required')
+            && userForm.get('email').touched" placeholder="{date | date}">
+            date Is required
+            </div>
+  
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+</section>
